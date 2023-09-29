@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.movieslist.ui.MainActivityViewModel" />
+    </data>
+
+    <ViewFlipper
+        android:id="@+id/viewMoviesFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/user_token"
+            layout="@layout/login_layout"
+            app:viewModel="@{viewModel}" />
+
+        <include
+            android:id="@+id/get_list"
+            layout="@layout/movies_list_layout"
+            app:viewModel="@{viewModel}" />
+
+        <include
+            android:id="@+id/get_item"
+            layout="@layout/get_item"
+            app:viewModel="@{viewModel}" />
+
+    </ViewFlipper>
+
+</layout>

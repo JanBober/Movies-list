@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.movieslist.ui.MainActivityViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/bearer_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/prefix_token"
+            app:layout_constraintBottom_toBottomOf="@id/token"
+            app:layout_constraintEnd_toStartOf="@id/token"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/token" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/token"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/token"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword|text"
+            android:text="@={viewModel.token}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bearer_id"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.fetchMoviesListApi()}"
+            android:text="@string/login"
+            app:layout_constraintTop_toBottomOf="@id/token" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
